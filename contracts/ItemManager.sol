@@ -17,7 +17,7 @@ enum SupplyChainState{Created, Paid, Delivered }
     uint _itemIndex;
     event SupplyChainStep(uint itemindex, uint _step, address itemAddress);
 
-    function createItem(string memory name, uint itemPrice) public {
+    function createItem(string memory name, uint itemPrice) public onlyOwner {
         Item item= new Item(this, itemPrice, _itemIndex);
         items[_itemIndex]._item= item;
 
